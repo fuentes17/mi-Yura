@@ -230,6 +230,7 @@ function playBackgroundMusic() {
   }
   audio.volume = 0.7;
   audio.loop = true;
+  audio.muted=true
   // Intentar reproducir inmediatamente
   audio.play().then(() => {
     btn.textContent = '🔊 Música';
@@ -237,6 +238,8 @@ function playBackgroundMusic() {
     // Si falla el autoplay, esperar click en el botón
     btn.textContent = '▶️ Música';
   });
+  audio.muted=false
+  audio.play()
   btn.onclick = () => {
     if (audio.paused) {
       audio.play();
